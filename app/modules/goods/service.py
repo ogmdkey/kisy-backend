@@ -70,8 +70,8 @@ class GoodsService:
     async def get_goods(self, data: GetGoodsSchema) -> Sequence[GoodEntity]:
         stmt = (
             select(GoodEntity)
-            .offset((data.page - 1) * data.size)
-            .limit(data.size)
+            # .offset((data.page - 1) * data.size)
+            # .limit(data.size)
             .options(
                 selectinload(GoodEntity.variations).selectinload(
                     GoodVariationEntity.photos
