@@ -43,7 +43,10 @@ async def update(data: CreateGoodSchema, service: GoodsService = Depends()):
 
 @router.post("/create")
 async def create(data: CreateGoodSchema, service: GoodsService = Depends()):
-    return await service.create(data)
+    result = await service.create(data)
+    return {
+        "status": "success"
+    }
 
 
 @router.post("/variations/set-remaining-stock")
